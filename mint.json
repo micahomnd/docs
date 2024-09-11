@@ -75,6 +75,12 @@
       ]
     },
     {
+      "group": "Quickstarts",
+      "pages": [
+        "getting-started/nextjs"
+      ]
+    },
+    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
