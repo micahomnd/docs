@@ -23,8 +23,9 @@ PRESERVE_SECRET_KEY=YOUR_PRESERVE_SECRET_KEY
 
 ## 3 Install the Preserve Provider
 
-Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router and pages router.
+Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router or pages router.
 
+<CodeGroup>
 ```javascript app/layout.tsx
 import { PreserveProvider } from '@preserve/react'
 import './globals.css'
@@ -57,47 +58,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 export default MyApp
 ```
-
-## 3 Install the Preserve Provider
-
-Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router and pages router.
-
-```javascript app/layout.tsx
-import { PreserveProvider } from '@preserve/react'
-import './globals.css'
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <PreserveProvider>
-      <html lang="en">
-        <body>
-          <main>{children}</main>
-        </body>
-      </html>
-    </PreserveProvider>
-  )
-}
-```
-
-```javascript pages/_app.tsx
-import '@/styles/globals.css'
-import { PreserveProvider } from '@preserve/react'
-import type { AppProps } from 'next/app'
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <PreserveProvider {...pageProps}>
-      <Component {...pageProps} />
-    </PreserveProvider>
-  )
-}
-
-export default MyApp
-```
+</CodeGroup>
 
 ## 4 Add the Search component
 
-The Search component can be installed anywhere in your application. It wraps a "trigger", which when clicked will pop up the menu. This means you can style the "trigger" element however you'd like for the menu to pop up.
+The Search component can be installed anywhere in your application. It wraps a "trigger", which when clicked will pop up the menu. This means you can style the trigger element however you'd like for the menu to pop up. In the example below, for instance, the "Open Search" button is the trigger element. The trigger can be multiple elements nested infinitely down.
 
 ```javascript app/component-with-search.tsx
 import { PreserveProvider } from '@preserve/react'
