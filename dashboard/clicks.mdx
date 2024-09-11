@@ -1,6 +1,17 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'Click Commands'
+description: 'Click commands are an abstraction built for commands which click anything in the present users context.'
 icon: 'paper-plane'
 ---
 
+<ResponseField name="name" type="string" required>
+The name of your command. Used for display in the Command Menu.
+
+Example: `Create New Command`
+</ResponseField>
+
+<ResponseField name="element-id" type="string" required>
+The element ID provides the element that will be clicked on the page when a user selects this in the Command Menu. You can use a pre-existing ID or attach one to the element. If no element is found on the current page with the selected ID, the command won't be displayed.
+
+Example: `button-id-98`
+</ResponseField>

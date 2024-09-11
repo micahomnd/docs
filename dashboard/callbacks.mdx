@@ -1,4 +1,18 @@
 ---
-title: 'New file'
+title: 'Callbacks'
 description: 'Description of your new file.'
+icon: 'block-question'
 ---
+
+<ResponseField name="name" type="string" required>
+The name of your command. Used for display in the Command Menu.
+
+Example: `Create New Command`
+
+</ResponseField>
+
+<ResponseField name="key" type="string" required>
+See the example in the Next.js Quickstart where 'logone' is used as a key. One might, for example, set the command name to be "Console Log One", and the key to be logone. The Search component expects a hashmap or JSON object assigning keys to functions, and will then call the corresponding callback using the assigned key.
+
+Example: `Create New Command`
+</ResponseField>
