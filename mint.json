@@ -81,6 +81,14 @@
       ]
     },
     {
+      "group": "Dashboard",
+      "pages": [
+        "dashboard/clicks",
+        "dashboard/callbacks",
+        "dashboard/navigations"
+      ]
+    },
+    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
