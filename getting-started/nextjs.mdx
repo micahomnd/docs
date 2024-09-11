@@ -74,7 +74,7 @@ export default function ComponentWithSearch({ children }: { children: React.Reac
   }
 
   return (
-    <Search callbacks={callbacks} mode={'dev'} theme={'dark'}>
+    <Search callbacks={callbacks} router={router} mode={'dev'} theme={'dark'}>
         <button>Open Search</button>
     </Search>
   )
