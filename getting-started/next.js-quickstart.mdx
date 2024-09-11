@@ -1,37 +1,117 @@
 ---
 title: 'Next.js Quickstart'
-description: 'Get set-up easily on Next.js'
+description: 'Get set-up in 5 minutes on Next.js'
 icon: 'code'
 ---
 
-## Basic
+## 1 Install @preserve/react
 
-### Inline Code
-
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+Preserve runs on an SDK with a prebuilt component. To get started, add the SDK to your project using the following command. You can also use yarn or pnpm.
 
 ```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+npm install @preserve/react
 ```
 
-### Code Block
+## 2 Set your environment variables
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+Preserve uses both a publishable and secret key, both of which can be found in your dashboard under the API keys tab. 
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
+```python .env
+NEXT_PUBLIC_PRESERVE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+PRESERVE_SECRET_KEY=YOUR_PRESERVE_SECRET_KEY
+```
+
+## 3 Install the Preserve Provider
+
+Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router and pages router.
+
+```javascript app/layout.tsx
+import { PreserveProvider } from '@preserve/react'
+import './globals.css'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <PreserveProvider>
+      <html lang="en">
+        <body>
+          <main>{children}</main>
+        </body>
+      </html>
+    </PreserveProvider>
+  )
 }
 ```
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
+```javascript pages/_app.tsx
+import '@/styles/globals.css'
+import { PreserveProvider } from '@preserve/react'
+import type { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <PreserveProvider {...pageProps}>
+      <Component {...pageProps} />
+    </PreserveProvider>
+  )
+}
+
+export default MyApp
+```
+
+## 3 Install the Preserve Provider
+
+Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router and pages router.
+
+```javascript app/layout.tsx
+import { PreserveProvider } from '@preserve/react'
+import './globals.css'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <PreserveProvider>
+      <html lang="en">
+        <body>
+          <main>{children}</main>
+        </body>
+      </html>
+    </PreserveProvider>
+  )
 }
 ```
-````
+
+```javascript pages/_app.tsx
+import '@/styles/globals.css'
+import { PreserveProvider } from '@preserve/react'
+import type { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <PreserveProvider {...pageProps}>
+      <Component {...pageProps} />
+    </PreserveProvider>
+  )
+}
+
+export default MyApp
+```
+
+## 4 Add the Search component
+
+The Search component can be installed anywhere in your application. It wraps a "trigger", which when clicked will pop up the menu. This means you can style the "trigger" element however you'd like for the menu to pop up.
+
+```javascript app/component-with-search.tsx
+import { PreserveProvider } from '@preserve/react'
+import './globals.css'
+
+export default function ComponentWithSearch({ children }: { children: React.ReactNode }) {
+  callbacks = {
+        'logone': () => console.log('1')
+  }
+
+  return (
+    <Search callbacks={callbacks} mode={'dev'} theme={'dark'}>
+        <button>Open Search</button>
+    </Search>
+  )
+}
+```
