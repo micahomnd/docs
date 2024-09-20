@@ -58,23 +58,6 @@
       ]
     },
     {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
       "group": "Quickstarts",
       "pages": [
         "getting-started/nextjs"
@@ -88,14 +71,6 @@
         "dashboard/navigations"
       ]
     },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
-    }
   ],
   "footerSocials": {
     "x": "https://x.com/mintlify",
