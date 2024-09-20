@@ -35,7 +35,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://preserve.mintlify.app"
     },
     {
       "name": "Community",
@@ -58,6 +58,7 @@
     {
       "group": "Quickstarts",
       "pages": [
+        "getting-started/copilot"
         "getting-started/nextjs"
       ]
     },

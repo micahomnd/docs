@@ -1,0 +1,25 @@
+---
+title: 'Setting up Copilot'
+description: 'A brief explanation of the in-app copilot.'
+---
+
+## What is Copilot?
+
+Preserve provides a way to seamlessly integrate in-app copilots capable of suggesting in-app actions in realtime. 
+
+This copilot is automatically set up with the Command Menu. Any command you add to the menu will be instantly made available to the Copilot, which will recommend actions to the user based on the current page, their queries, and the documentation you have installed.
+
+## Training Copilot on Content
+
+Uploading documentation for the Copilot to access is a seamless process. We assume that your documentation is stored as a subfolder titled "docs" within some repository, in the form of MDX files. If this is not the case, simply make a folder titled "docs" and add whatever content you would like to upload into an MDX file (i.e, with ending .mdx).
+
+Install our package if you haven't already:
+```
+npm install @preserve/react
+```
+
+Next, run the following command:
+```
+npx preserve-install-docs
+```
+
