@@ -58,7 +58,7 @@
     {
       "group": "Quickstarts",
       "pages": [
-        "getting-started/copilot"
+        "getting-started/copilot",
         "getting-started/nextjs"
       ]
     },
