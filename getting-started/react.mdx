@@ -1,4 +1,116 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: 'React Quickstart'
+description: 'Get set-up in 5 minutes on React'
+icon: 'code'
 ---
+
+## 1 Install @preserve/react
+
+Preserve runs on an SDK with a prebuilt component. To get started, add the SDK to your project using the following command. You can also use yarn or pnpm.
+
+```
+npm install @preserve/react
+```
+
+## 2 Set your environment variables
+
+Preserve uses both a publishable and secret key, both of which can be found in your dashboard under the API keys tab. 
+
+```python .env
+NEXT_PUBLIC_PRESERVE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+PRESERVE_SECRET_KEY=YOUR_PRESERVE_SECRET_KEY
+```
+
+## 3 Install the Preserve Provider
+
+Preserve uses a provider that wraps your application to provide your instance's context. See below examples for the app router or pages router.
+
+<CodeGroup>
+```javascript app/layout.tsx
+import { PreserveProvider } from '@preserve/react'
+import './globals.css'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <PreserveProvider>
+      <html lang="en">
+        <body>
+          <main>{children}</main>
+        </body>
+      </html>
+    </PreserveProvider>
+  )
+}
+```
+
+```javascript pages/_app.tsx
+import '@/styles/globals.css'
+import { PreserveProvider } from '@preserve/react'
+import type { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <PreserveProvider {...pageProps}>
+      <Component {...pageProps} />
+    </PreserveProvider>
+  )
+}
+
+export default MyApp
+```
+</CodeGroup>
+
+## 4 Add the Search component
+
+The Search component can be installed anywhere in your application. It wraps a "trigger", which when clicked will pop up the menu. This means you can style the trigger element however you'd like for the menu to pop up. In the example below, for instance, the "Open Search" button is the trigger element. The trigger can be multiple elements nested infinitely down.
+
+<Tip>
+
+Preserve offers multiple props to make development, theming, and functionality easier. See them below the provided code snippet for more info.
+
+</Tip>
+
+```javascript app/component-with-search.tsx
+import { PreserveProvider } from '@preserve/react'
+import './globals.css'
+
+export default function ComponentWithSearch({ children }: { children: React.ReactNode }) {
+
+  const exampleCallback = () => {
+    console.log('This is a custom callback function')
+  }
+
+  callbacks = {
+        'callback': exampleCallback
+  }
+
+  return (
+    <Search callbacks={callbacks} router={router} mode={'dev'} theme={'dark'}>
+        <button>Open Search</button>
+    </Search>
+  )
+}
+```
+
+<ResponseField name="callbacks" type="object" required>
+A list of custom callback functions for the command palette to access, where the keys correspond to those registered in the Dashboard under 'Commands'.
+
+</ResponseField>
+
+<ResponseField name="router" type="string">
+An optional custom router function for those looking for native routing functionality, for example in an SPA (Single-Page Application).
+
+Example: `Create New Command`
+</ResponseField>
+
+<ResponseField name="mode" type="string">
+Sets whether this is a development instance of Preserve (displays 'Drafts' in the Command Menu), or a production instance (no drafts displayed). 
+
+Example: `Create New Command`
+</ResponseField>
+
+<ResponseField name="theme" type="string">
+The theme for the command menu (light or dark). Defaults to light.
+
+Example: `Create New Command`
+</ResponseField>
