@@ -69,8 +69,13 @@ import { PreserveProvider } from '@preserve/react'
 import './globals.css'
 
 export default function ComponentWithSearch({ children }: { children: React.ReactNode }) {
+
+  const exampleCallback = () => {
+    console.log('This is a custom callback function')
+  }
+
   callbacks = {
-        'logone': () => console.log('1')
+        'callback': exampleCallback
   }
 
   return (
