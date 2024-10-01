@@ -4,12 +4,12 @@ description: 'Get set-up in 5 minutes on React'
 icon: 'code'
 ---
 
-## 1 Install @preserve/react
+## 1 Install @preserve-sdk/react
 
 Preserve runs on an SDK with a prebuilt component. To get started, add the SDK to your project using the following command. You can also use yarn or pnpm.
 
 ```
-npm install @preserve/react
+npm install @preserve-sdk/react
 ```
 
 ## 2 Set your environment variables
@@ -17,7 +17,7 @@ npm install @preserve/react
 Preserve uses both a publishable and secret key, both of which can be found in your dashboard under the API keys tab. 
 
 ```python .env
-NEXT_PUBLIC_PRESERVE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+REACT_APP_PRESERVE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 PRESERVE_SECRET_KEY=YOUR_PRESERVE_SECRET_KEY
 ```
 
@@ -27,36 +27,19 @@ Preserve uses a provider that wraps your application to provide your instance's 
 
 <CodeGroup>
 ```javascript app/layout.tsx
-import { PreserveProvider } from '@preserve/react'
-import './globals.css'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { PreserveProvider } from '@preserve/react';
+import './index.css';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <PreserveProvider>
-      <html lang="en">
-        <body>
-          <main>{children}</main>
-        </body>
-      </html>
-    </PreserveProvider>
-  )
-}
-```
+ReactDOM.render(
+  <PreserveProvider>
+    <App />
+  </PreserveProvider>,
+  document.getElementById('root')
+);
 
-```javascript pages/_app.tsx
-import '@/styles/globals.css'
-import { PreserveProvider } from '@preserve/react'
-import type { AppProps } from 'next/app'
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <PreserveProvider {...pageProps}>
-      <Component {...pageProps} />
-    </PreserveProvider>
-  )
-}
-
-export default MyApp
 ```
 </CodeGroup>
 
@@ -71,25 +54,29 @@ Preserve offers multiple props to make development, theming, and functionality e
 </Tip>
 
 ```javascript app/component-with-search.tsx
-import { PreserveProvider } from '@preserve/react'
-import './globals.css'
+import React from 'react';
+import { Search } from '@preserve/react';
 
-export default function ComponentWithSearch({ children }: { children: React.ReactNode }) {
+export default function ComponentWithSearch(props) {
+
+  const navigate = () => {
+    // Optional custom navigation function here
+  }
 
   const exampleCallback = () => {
-    console.log('This is a custom callback function')
-  }
+    // For an example callback function, as in the dashboard
+  };
 
-  callbacks = {
-        'callback': exampleCallback
-  }
+  const callbacks = {
+    'callback': exampleCallback
+  };
 
   return (
-    <Search callbacks={callbacks} router={router} mode={'dev'} theme={'dark'}>
-        <button>Open Search</button>
+    <Search callbacks={callbacks} mode={'dev'} theme={'dark'} navigate={navigate}>
+      <button>Open Search</button>
     </Search>
-  )
-}
+  );
+};
 ```
 
 <ResponseField name="callbacks" type="object" required>
@@ -97,8 +84,8 @@ A list of custom callback functions for the command palette to access, where the
 
 </ResponseField>
 
-<ResponseField name="router" type="string">
-An optional custom router function for those looking for native routing functionality, for example in an SPA (Single-Page Application).
+<ResponseField name=" navigate" type="string">
+An optional custom navigation function for those looking for native routing functionality, for example in an SPA (Single-Page Application).
 
 Example: `Create New Command`
 </ResponseField>
