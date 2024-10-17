@@ -7,21 +7,19 @@ icon: 'map'
 <ResponseField name="name" type="string" required>
 The name of your command. Used for display in the Command Menu.
 
-Example: `Create New Command`
+Example: `Go to API Keys`
 
 </ResponseField>
 
 <ResponseField name="behaviour" type="router | new tab | same tab" required>
 The option-select has three values. Selecting router will set the instance to expect a custom router function to be passed in as props to the Search component. Otherwise, it will default to opening in a new tab. You can also select to have the navigation occur in the same tab.
 
-Example: `Create New Command`
-
 </ResponseField>
 
 <ResponseField name="url" type="string" required>
 A url, /yourChosenPath if using router behaviour, otherwise https://www.site.com/path. 
 
-Example: `Create New Command`
+Example: `/api-keys`
 
 </ResponseField>
 
