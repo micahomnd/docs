@@ -95,22 +95,23 @@ export default function ComponentWithSearch({ children }: { children: React.Reac
 <ResponseField name="callbacks" type="object" required>
 A list of custom callback functions for the command palette to access, where the keys correspond to those registered in the Dashboard under 'Commands'.
 
+Example: `{ 'copy-api-key': copyApiKey, 'logout': handleLogout }`
 </ResponseField>
 
 <ResponseField name="router" type="string">
 An optional custom router function for those looking for native routing functionality, for example in an SPA (Single-Page Application).
 
-Example: `Create New Command`
+Example: `router={routerFunction}`
 </ResponseField>
 
 <ResponseField name="mode" type="string">
 Sets whether this is a development instance of Preserve (displays 'Drafts' in the Command Menu), or a production instance (no drafts displayed). 
 
-Example: `Create New Command`
+Example: `'dev'` or `'prod'`
 </ResponseField>
 
 <ResponseField name="theme" type="string">
 The theme for the command menu (light or dark). Defaults to light.
 
-Example: `Create New Command`
+Example: `'dark'` or `'light'`
 </ResponseField>
