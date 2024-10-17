@@ -12,14 +12,10 @@
     }
   },
   "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.usepreserve.ca"
   },
   "tabs": [
     {
@@ -32,15 +28,15 @@
       "name": "Documentation",
       "icon": "book-open-cover",
       "url": "https://preserve.mintlify.app"
-    },
+    }
   ],
   "navigation": [
     {
-      "group": "Quickstarts",
+      "group": "Getting Started",
       "pages": [
+        "getting-started/introduction",
         "getting-started/copilot",
-        "getting-started/nextjs",
-        "getting-started/react"
+        "getting-started/nextjs"
       ]
     },
     {
@@ -53,6 +49,6 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/micahomnd",
+    "x": "https://x.com/micahomnd"
   }
 }
